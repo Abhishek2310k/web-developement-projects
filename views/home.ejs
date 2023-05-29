@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs')%>
+    <h1>
+        HOME
+    </h1>
+
+    <p>
+        <%=starting_content%>
+    </p>
+    <!-- 
+    <% for (var i=0;i<blogs.length;i++) { %>
+        <% console.log(blogs[i].blog_title); %>
+            <% } %> -->
+
+    <% blogs.forEach(function(element){ %>
+        <div class="entry">
+            <h1>
+                <%= element.blog_title %>
+            </h1>
+            <p class="home_para">
+                <%= element.blog_entry%>
+            </p>
+            <% var page=element.blog_title; %>
+                <% page="/posts/" + page; %>
+                    <a href=<%=page%>>read me</a>
+        </div>
+        <% }); %>
+
+            <%- include('partials/footer.ejs') %>
